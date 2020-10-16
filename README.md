@@ -18,8 +18,7 @@ References:
 For a given customer, Valimail prompts the customer to make DNS changes to support
 our automated solutions for DMARC and anti-phishing.
 
-For example, if our customer owned `example.com`, the DNS records would result
-in this:
+For example, if our customer owned `example.com`, after making the requested changes the customer's DNS records would return:
 
 ```
 > dig NS _dmarc.example.com +short
@@ -39,6 +38,4 @@ ns.vali.email.
 
 ## TODO
 
-- [ ] Confirm that the `TXT` record in `valimail.com.valimail-authenticate.json`
-results in exactly `include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email` that are correct [SPF Macros](https://tools.ietf.org/html/rfc7208#section-7) and not with
-the `%` seen as Domain Connect protocol variable.
+- [ ] Confirm that the `TXT` record in `valimail.com.valimail-authenticate.json` has these exact [SPF Macros](https://tools.ietf.org/html/rfc7208#section-7) `include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email`. And that it isn't treated as a `%variable%` per the Domain Connect protocol.
