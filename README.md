@@ -31,11 +31,8 @@ ns.vali.email.
 ns.vali.email.
 
 > dig TXT example.com +short
+# Assuming that we pass in the following as the %spftxt% variable
 ...
 "v=spf1 include:example.com._nspf.vali.email include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email ~all"
 ...
 ```
-
-## TODO
-
-- [ ] Confirm that the `TXT` record in `valimail.com.valimail-authenticate.json` has these exact [SPF Macros](https://tools.ietf.org/html/rfc7208#section-7) `include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email`. And that it isn't treated as a `%variable%` per the Domain Connect protocol.
